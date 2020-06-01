@@ -66,7 +66,7 @@ public class ClienteDeObjetos {
                         } else {
                             listadoId.add(dni);
                             System.out.println("No existen pacientes con ese ID, se procedera a la creación del nuevo registro.");
-                            Opcion1(objAsintomatico);
+                            Opcion1(dni,objAsintomatico);
                         }
                     }
 
@@ -85,6 +85,7 @@ public class ClienteDeObjetos {
                         if (aux == 1){
                         System.out.println("Ingrese la temperatura: ");
                         float temperatura = UtilidadesConsola.leerDecimal();
+                        System.out.println("Temperatura registrada. ");
                         Opcion3(objAsintomatico.getId(),temperatura);
                         }else{
                             System.out.println("No existen pacientes registrados.");
@@ -102,14 +103,14 @@ public class ClienteDeObjetos {
         } while (opcion != 4);
     }
 
-    private static void Opcion1(ClsAsintomaticoDTO objAsintomatico) throws RemoteException {
+    private static void Opcion1(int id,ClsAsintomaticoDTO objAsintomatico) throws RemoteException {
 
         
         System.out.println("==Registro del Paciente==");
 
         //SOLICITAR DATOS DEL PACIENTE
-        System.out.println("Ingrese el id del paciente");
-        int id = UtilidadesConsola.leerEntero();
+        //System.out.println("Ingrese el id del paciente");
+        //int id = UtilidadesConsola.leerEntero();
         objAsintomatico.setId(id);
 
         System.out.println("Ingrese el tipo de id ");
