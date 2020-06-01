@@ -103,7 +103,7 @@ public class ClienteDeObjetos {
         int id = UtilidadesConsola.leerEntero();
 
         System.out.println("Ingrese el tipo de id ");
-        String tipo_id = UtilidadesConsola.leerCadena();
+        //objAsintomatico.tipo_id = UtilidadesConsola.leerCadena();
 
         System.out.println("Ingrese el nombre del paciente ");
         String nombres = UtilidadesConsola.leerCadena();
