@@ -37,6 +37,7 @@ public class ClienteDeObjetos {
         int aux = 0;//variable para validar la opción 2
         int aux2 = 0;//variable para controlar la cantidad de pacientes registrados
         int opcion = 0;
+        ClsAsintomaticoDTO objAsintomatico = new ClsAsintomaticoDTO();
         do {
             System.out.println("========Menu=========");
             System.out.println("1. Registrar Paciente");
@@ -65,7 +66,7 @@ public class ClienteDeObjetos {
                         } else {
                             listadoId.add(dni);
                             System.out.println("No existen pacientes con ese ID, se procedera a la creación del nuevo registro.");
-                            Opcion1();
+                            Opcion1(objAsintomatico);
                         }
                     }
 
@@ -74,13 +75,17 @@ public class ClienteDeObjetos {
                     break;
                 case 2:
                     if (aux == 1) {
-                        Opcion2();
+                        Opcion2(objAsintomatico);
                     } else {
                         System.out.println("No existen pacientes registrados.");
                     }
 
                     break;
                 case 3:
+          
+                        System.out.println("Ingrese la temperatura: ");
+                        float temperatura = UtilidadesConsola.leerDecimal();
+                        Opcion3(objAsintomatico.getId(),temperatura);
 
                     break;
                 case 4:
@@ -93,9 +98,9 @@ public class ClienteDeObjetos {
         } while (opcion != 4);
     }
 
-    private static void Opcion1() throws RemoteException {
+    private static void Opcion1(ClsAsintomaticoDTO objAsintomatico) throws RemoteException {
 
-        ClsAsintomaticoDTO objAsintomatico = new ClsAsintomaticoDTO();
+        
         System.out.println("==Registro del Paciente==");
 
         //SOLICITAR DATOS DEL PACIENTE
@@ -115,10 +120,6 @@ public class ClienteDeObjetos {
         String apellidos = UtilidadesConsola.leerCadena();
         objAsintomatico.setApellidos(apellidos);
 
-        System.out.println("Ingrese la temperatura del paciente");
-        float temperatura = UtilidadesConsola.leerDecimal();
-        objAsintomatico.setDireccion(apellidos);
-
         boolean valor = objRemoto.registrarAsintomatico(objAsintomatico);
         if (valor) {
             System.out.println("Registro realizado satisfactoriamente...");
@@ -127,7 +128,7 @@ public class ClienteDeObjetos {
         }
     }
 
-    private static void Opcion2() {
+    private static void Opcion2(ClsAsintomaticoDTO objAsintomatico) {
 
         try {
             System.out.println("==Consulta de un Paciente==");
@@ -149,4 +150,12 @@ public class ClienteDeObjetos {
             System.out.println("La operacion no se pudo completar, intente nuevamente...");
         }
     }
+    
+     private static boolean Opcion3(int id, float ToC){
+     
+         System.out.println("Temperatura registrada");
+         //objRemoto.enviarIndicador();
+         return true;
+         
+     }
 }
