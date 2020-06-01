@@ -15,9 +15,9 @@ package servidorDeAlertas;
 import servidorDeAlertas.utilidades.UtilidadesRegistroS;
 import servidorDeAlertas.utilidades.UtilidadesConsola;
 import java.rmi.RemoteException;
-import servidorDeAlertas.rmi.ClsGestionAsintomaticos;
+import servidorDeAlertas.sop_rmi.ClsGestionAsintomaticos;
 
-public class ServidorAlertas
+public class ServidorDeObjetos
 {
     public static void main(String args[]) throws RemoteException
     {
