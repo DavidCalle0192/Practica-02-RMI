@@ -10,19 +10,39 @@ public class ClsAsintomaticoDTO implements Serializable
     private String tipo_id;
     private String nombres;
     private String apellidos;
-    private float temperatura;
+    private String direccion;
    
-
-    public ClsAsintomaticoDTO(int id, String tipo_id, String nombres, String apellidos, float temperatura) {
+   
+/*
+    public ClsAsintomaticoDTO(int id, String tipo_id, String nombres, String apellidos,String direccion) {
         this.id = id;
         this.tipo_id = tipo_id;
         this.nombres = nombres;
         this.apellidos = apellidos;
-        this.temperatura = temperatura;
+        this.direccion = direccion;
+       
    
         
     }
+*/
+    public ClsAsintomaticoDTO() {
+    
+        this.id = id;
+        this.tipo_id = tipo_id;
+        this.nombres = nombres;
+        this.apellidos = apellidos;
+        this.direccion = direccion;
+    }
 
+    public String getDireccion() {
+        return direccion;
+    }
+
+    public void setDireccion(String direccion) {
+        this.direccion = direccion;
+    }
+
+    
     public int getId() {
         return id;
     }
@@ -55,13 +75,7 @@ public class ClsAsintomaticoDTO implements Serializable
         this.apellidos = apellidos;
     }
 
-    public float getTemperatura() {
-        return temperatura;
-    }
-
-    public void setTemperatura(float temperatura) {
-        this.temperatura = temperatura;
-    }
+   
 
     
 

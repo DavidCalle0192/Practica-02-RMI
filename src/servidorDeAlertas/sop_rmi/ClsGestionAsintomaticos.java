@@ -20,50 +20,34 @@ public class ClsGestionAsintomaticos extends UnicastRemoteObject implements Gest
         super(); //invoca al constructor de la clase base       
         this.misUsuarios = new ArrayList();
     }
+ 
 
     @Override
-    public boolean registrarUsuario(int id, String tipo_id, String nombres, String apellidos, float temperatura) throws RemoteException
-    {
+    public boolean registrarAsintomatico(ClsAsintomaticoDTO objAsintomatico) throws RemoteException {
+    
         System.out.println("Entrando a registrar paciente");
         boolean bandera=false;
         
         if(misUsuarios.size() < 5)
         {
-            ClsAsintomaticoDTO nuevo = new ClsAsintomaticoDTO(id,tipo_id,nombres,apellidos,temperatura);
-            bandera=misUsuarios.add(nuevo);
-            System.out.println("Tipo de id: " + tipo_id + ", Nombres: " + nombres + ", Apellidos: " +apellidos + ", Dirección: " +temperatura);
+            //ClsAsintomaticoDTO nuevo = new ClsAsintomaticoDTO();
+            bandera=misUsuarios.add(objAsintomatico);
+            System.out.println("Tipo de id: " + objAsintomatico.getTipo_id() + ", Nombres: " + objAsintomatico.getNombres() + ", Apellidos: " +objAsintomatico.getApellidos());
         }
         
         return bandera;
     }
+
+    @Override
+    public ClsAsintomaticoDTO consultarAsintomatico(int id) throws RemoteException {
     
-    @Override
-    public ClsAsintomaticoDTO consultarUsuario(int id) throws RemoteException {
-        return this.misUsuarios.get(0);
+        return this.misUsuarios.get(id);
     }
-    /*
+
     @Override
-    public boolean registrarUsuario(int identificacion, String nombres, String apellidos) throws RemoteException
-    {
-        System.out.println("Entrando a registrar usuario");
-        boolean bandera=false;
-        
-        if(misUsuarios.size() < 5)
-        {
-            UsuarioDTO nuevo = new UsuarioDTO(identificacion,nombres,apellidos);
-            bandera=misUsuarios.add(nuevo);
-            System.out.println("Usuario registrado: identificación: " + identificacion + ", nombres: " + nombres + ", apellidos. " +apellidos );
-        }
-        
-        return bandera;
+    public boolean enviarIndicador(int id, float ToC) throws RemoteException {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
-    /*
-    @Override
-    public int consultarCantidadUsuarios() throws RemoteException
-    {
-        System.out.println("Entrando a Cantidad");
-        return misUsuarios.size();
-    }*/
 
     
     public void consultarReferenciaRemotaDeNotificacion(String dir_Ip, int numPuerto)
