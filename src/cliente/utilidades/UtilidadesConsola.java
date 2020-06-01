@@ -35,8 +35,8 @@ public class UtilidadesConsola
     	return opcion;
     
     }
-       /* 
-        public static float leerDecimal(float f)
+       
+        public static float leerDecimal()
     {
     	String linea = "";
     	float opcion = 0;
@@ -62,7 +62,7 @@ public class UtilidadesConsola
     	return opcion;
     
     }
-	*/
+	
 	public static String leerCadena()
     {
     	String linea = "";
