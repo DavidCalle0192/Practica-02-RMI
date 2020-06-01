@@ -13,7 +13,7 @@ public class ClsAsintomaticoDTO implements Serializable
     private String direccion;
    
    
-
+/*
     public ClsAsintomaticoDTO(int id, String tipo_id, String nombres, String apellidos,String direccion) {
         this.id = id;
         this.tipo_id = tipo_id;
@@ -24,9 +24,14 @@ public class ClsAsintomaticoDTO implements Serializable
    
         
     }
-
+*/
     public ClsAsintomaticoDTO() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    
+        this.id = id;
+        this.tipo_id = tipo_id;
+        this.nombres = nombres;
+        this.apellidos = apellidos;
+        this.direccion = direccion;
     }
 
     public String getDireccion() {

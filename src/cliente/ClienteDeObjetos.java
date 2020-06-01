@@ -101,18 +101,23 @@ public class ClienteDeObjetos {
         //SOLICITAR DATOS DEL PACIENTE
         System.out.println("Ingrese el id del paciente");
         int id = UtilidadesConsola.leerEntero();
+        objAsintomatico.setId(id);
 
         System.out.println("Ingrese el tipo de id ");
-        //objAsintomatico.tipo_id = UtilidadesConsola.leerCadena();
-
+        String tipo_id = UtilidadesConsola.leerCadena();
+        objAsintomatico.setTipo_id(tipo_id);
+        
         System.out.println("Ingrese el nombre del paciente ");
         String nombres = UtilidadesConsola.leerCadena();
+        objAsintomatico.setNombres(nombres);
 
         System.out.println("Ingrese el apellido del paciente ");
         String apellidos = UtilidadesConsola.leerCadena();
+        objAsintomatico.setApellidos(apellidos);
 
         System.out.println("Ingrese la temperatura del paciente");
         float temperatura = UtilidadesConsola.leerDecimal();
+        objAsintomatico.setDireccion(apellidos);
 
         boolean valor = objRemoto.registrarAsintomatico(objAsintomatico);
         if (valor) {
