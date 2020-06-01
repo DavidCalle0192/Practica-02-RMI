@@ -145,7 +145,7 @@ public class ClienteDeObjetos {
                 System.out.println("Tipo ID: " + objUsuario.getTipo_id());
                 System.out.println("Nombres: " + objUsuario.getNombres());
                 System.out.println("Apellidos: " + objUsuario.getApellidos());
-                //System.out.println("Dirección: " + objUsuario.getTemperatura());
+                System.out.println("Dirección: " + objUsuario.getDireccion());
 
             } else {
                 System.out.println("Usuario no encontrado");
@@ -157,7 +157,7 @@ public class ClienteDeObjetos {
     
      private static boolean Opcion3(int id, float ToC) throws RemoteException{
      
-         System.out.println("Temperatura registrada");
+         System.out.println("Enviando id y temperatura del paciente");
          boolean objAsintomatico = objRemoto.enviarIndicador(id,ToC);
          return true;
          
