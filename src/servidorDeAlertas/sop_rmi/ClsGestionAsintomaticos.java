@@ -4,6 +4,8 @@ import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;
 import java.util.ArrayList;
 import servidorDeAlertas.dto.ClsAsintomaticoDTO;
+import servidorDeAlertas.utilidades.UtilidadesRegistroC;
+import servidorNotificaciones.sop_rmi.NotificacionesInt;
 /*/*
 Clase que implementa la interface remota GestorUsuariosInt
 */
@@ -11,7 +13,8 @@ Clase que implementa la interface remota GestorUsuariosInt
 public class ClsGestionAsintomaticos extends UnicastRemoteObject implements GestionAsintomaticosInt
 {  
     private ArrayList<ClsAsintomaticoDTO> misUsuarios;
-
+    private NotificacionesInt objReferenciaRemotaNotificacion;
+    
     public ClsGestionAsintomaticos() throws RemoteException
     {
         super(); //invoca al constructor de la clase base       
@@ -63,5 +66,10 @@ public class ClsGestionAsintomaticos extends UnicastRemoteObject implements Gest
     }*/
 
     
-       
+    public void consultarReferenciaRemotaDeNotificacion(String dir_Ip, int numPuerto)
+    {
+        System.out.println(" ");
+        System.out.println("Desde consultarReferenciaRemotaDeNotificacion()...");
+        objReferenciaRemotaNotificacion = (NotificacionesInt) UtilidadesRegistroC.obtenerObjRemoto(dir_Ip, numPuerto, "ObjetoRemotoNotificaciones");
+    }
 }
