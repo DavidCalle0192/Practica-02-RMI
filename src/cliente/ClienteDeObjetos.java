@@ -124,7 +124,7 @@ public class ClienteDeObjetos {
         String apellidos = UtilidadesConsola.leerCadena();
         objAsintomatico.setApellidos(apellidos);
         
-        System.out.println("Ingrese el apellido del paciente ");
+        System.out.println("Ingrese la dirección del paciente ");
         String direccion = UtilidadesConsola.leerCadena();
         objAsintomatico.setDireccion(direccion);
 
