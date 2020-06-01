@@ -151,10 +151,10 @@ public class ClienteDeObjetos {
         }
     }
     
-     private static boolean Opcion3(int id, float ToC){
+     private static boolean Opcion3(int id, float ToC) throws RemoteException{
      
          System.out.println("Temperatura registrada");
-         //objRemoto.enviarIndicador();
+         boolean objAsintomatico = objRemoto.enviarIndicador(id,ToC);
          return true;
          
      }
