@@ -1,9 +1,9 @@
-package servidorDeAlertas.rmi;
+package servidorDeAlertas.sop_rmi;
 
 import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;
 import java.util.ArrayList;
-import servidorDeAlertas.rmi.ClsAsintomaticoDTO;
+import servidorDeAlertas.dto.ClsAsintomaticoDTO;
 /*/*
 Clase que implementa la interface remota GestorUsuariosInt
 */
@@ -19,16 +19,16 @@ public class ClsGestionAsintomaticos extends UnicastRemoteObject implements Gest
     }
 
     @Override
-    public boolean registrarUsuario(int id, String tipo_id, String nombres, String apellidos, String direccion) throws RemoteException
+    public boolean registrarUsuario(int id, String tipo_id, String nombres, String apellidos, float temperatura) throws RemoteException
     {
         System.out.println("Entrando a registrar paciente");
         boolean bandera=false;
         
         if(misUsuarios.size() < 5)
         {
-            ClsAsintomaticoDTO nuevo = new ClsAsintomaticoDTO(id,tipo_id,nombres,apellidos,direccion);
+            ClsAsintomaticoDTO nuevo = new ClsAsintomaticoDTO(id,tipo_id,nombres,apellidos,temperatura);
             bandera=misUsuarios.add(nuevo);
-            System.out.println("Tipo de id: " + tipo_id + ", Nombres: " + nombres + ", Apellidos: " +apellidos + ", Dirección: " +direccion);
+            System.out.println("Tipo de id: " + tipo_id + ", Nombres: " + nombres + ", Apellidos: " +apellidos + ", Dirección: " +temperatura);
         }
         
         return bandera;

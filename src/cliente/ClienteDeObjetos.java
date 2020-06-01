@@ -6,10 +6,10 @@ import java.rmi.RemoteException;
 import java.util.ArrayList;
 import java.util.Random;
 import java.util.Scanner;
-import servidorDeAlertas.rmi.GestionAsintomaticosInt;
-import servidorDeAlertas.rmi.ClsAsintomaticoDTO;
+import servidorDeAlertas.sop_rmi.GestionAsintomaticosInt;
+import servidorDeAlertas.dto.ClsAsintomaticoDTO;
 
-public class ClienteHabitacion
+public class ClienteDeObjetos
 {
 
         //objeto remoto
@@ -47,7 +47,8 @@ public class ClienteHabitacion
 			System.out.println("========Menu=========");
 			System.out.println("1. Registrar Paciente");			
 			System.out.println("2. Consultar Paciente");
-                        System.out.println("3. Salir");
+                        System.out.println("3. Enviar Indicador  ");
+                        System.out.println("4. Salir");
 			
 			opcion = UtilidadesConsola.leerEntero();
 			
@@ -79,13 +80,16 @@ public class ClienteHabitacion
 					
 					break;	
                                 case 3:
+					
+					break;
+                                case 4:
 					System.out.println("Salir...");
 					break;
 				default:
 					System.out.println("Opción incorrecta");
 			}
 			
-		}while(opcion != 3);
+		}while(opcion != 4);
 	}
 
 	private static void Opcion1() throws RemoteException 
@@ -107,11 +111,11 @@ public class ClienteHabitacion
             System.out.println("Ingrese el apellido del paciente ");
             String apellidos = UtilidadesConsola.leerCadena();
            
-            System.out.println("Ingrese la dirección del paciente");
-            String direccion = UtilidadesConsola.leerCadena();
+            System.out.println("Ingrese la temperatura del paciente");
+            int temperatura = UtilidadesConsola.leerEntero();
             
          
-            boolean valor = objRemoto.registrarUsuario(id,tipo_id, nombres, apellidos, direccion);
+            boolean valor = objRemoto.registrarUsuario(id,tipo_id, nombres, apellidos, temperatura);
             if(valor)
                 System.out.println("Registro realizado satisfactoriamente...");
             else
@@ -134,7 +138,7 @@ public class ClienteHabitacion
                                 System.out.println("Tipo ID: " + objUsuario.getTipo_id());
 				System.out.println("Nombres: " + objUsuario.getNombres());
                                 System.out.println("Apellidos: " + objUsuario.getApellidos());
-                                System.out.println("Dirección: " + objUsuario.getDireccion());
+                                System.out.println("Dirección: " + objUsuario.getTemperatura());
                                 
                         }
 			else

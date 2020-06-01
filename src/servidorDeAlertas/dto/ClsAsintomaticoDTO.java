@@ -1,8 +1,7 @@
-package servidorDeAlertas.rmi;
+package servidorDeAlertas.dto;
 
-import servidorDeAlertas.rmi.*;
 import java.io.Serializable;
-import java.util.Random;
+
 
 public class ClsAsintomaticoDTO implements Serializable
 {	
@@ -11,15 +10,15 @@ public class ClsAsintomaticoDTO implements Serializable
     private String tipo_id;
     private String nombres;
     private String apellidos;
-    private String direccion;
+    private float temperatura;
    
 
-    public ClsAsintomaticoDTO(int id, String tipo_id, String nombres, String apellidos, String direccion) {
+    public ClsAsintomaticoDTO(int id, String tipo_id, String nombres, String apellidos, float temperatura) {
         this.id = id;
         this.tipo_id = tipo_id;
         this.nombres = nombres;
         this.apellidos = apellidos;
-        this.direccion = direccion;
+        this.temperatura = temperatura;
    
         
     }
@@ -56,12 +55,12 @@ public class ClsAsintomaticoDTO implements Serializable
         this.apellidos = apellidos;
     }
 
-    public String getDireccion() {
-        return direccion;
+    public float getTemperatura() {
+        return temperatura;
     }
 
-    public void setDireccion(String direccion) {
-        this.direccion = direccion;
+    public void setTemperatura(float temperatura) {
+        this.temperatura = temperatura;
     }
 
     

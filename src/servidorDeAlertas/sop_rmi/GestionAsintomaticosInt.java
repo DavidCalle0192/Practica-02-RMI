@@ -1,7 +1,7 @@
 
-package servidorDeAlertas.rmi;
+package servidorDeAlertas.sop_rmi;
 
-import servidorDeAlertas.rmi.*;
+import servidorDeAlertas.dto.ClsAsintomaticoDTO;
 import java.rmi.Remote;
 import java.rmi.RemoteException;
 
@@ -10,7 +10,7 @@ import java.rmi.RemoteException;
 public interface GestionAsintomaticosInt extends Remote
 {
     //Definicion del primer método remoto
-    public boolean registrarUsuario(int id, String tipo_id, String nombres, String apellidos, String direccion) throws RemoteException;
+    public boolean registrarUsuario(int id, String tipo_id, String nombres, String apellidos, float temperatura) throws RemoteException;
     //cada definición del método debe especificar que puede lanzar la excepción java.rmi.RemoteException
     
     /*//Definicion del segundo método remoto
