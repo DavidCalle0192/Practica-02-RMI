@@ -153,7 +153,7 @@ public class ClienteDeObjetos {
     
      private static boolean Opcion3(int id, float ToC){
      
-         System.out.println();
+         System.out.println("Temperatura registrada");
          //objRemoto.enviarIndicador();
          return true;
          
