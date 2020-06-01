@@ -32,7 +32,7 @@ public class ServidorDeObjetos
         numPuertoRMIRegistry = UtilidadesConsola.leerEntero(); 
      
         ClsGestionAsintomaticos objRemoto = new ClsGestionAsintomaticos();
-        
+        objRemoto.consultarReferenciaRemotaDeNotificacion(direccionIpRMIRegistry, numPuertoRMIRegistry);
         try
         {
            UtilidadesRegistroS.arrancarNS(numPuertoRMIRegistry);
