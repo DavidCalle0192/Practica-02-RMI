@@ -82,10 +82,14 @@ public class ClienteDeObjetos {
 
                     break;
                 case 3:
-          
+                        if (aux == 1){
                         System.out.println("Ingrese la temperatura: ");
                         float temperatura = UtilidadesConsola.leerDecimal();
                         Opcion3(objAsintomatico.getId(),temperatura);
+                        }else{
+                            System.out.println("No existen pacientes registrados.");
+                        }
+                        
 
                     break;
                 case 4:
@@ -141,7 +145,7 @@ public class ClienteDeObjetos {
                 System.out.println("Tipo ID: " + objUsuario.getTipo_id());
                 System.out.println("Nombres: " + objUsuario.getNombres());
                 System.out.println("Apellidos: " + objUsuario.getApellidos());
-                //System.out.println("Dirección: " + objUsuario.getTemperatura());
+                System.out.println("Dirección: " + objUsuario.getDireccion());
 
             } else {
                 System.out.println("Usuario no encontrado");
@@ -153,8 +157,9 @@ public class ClienteDeObjetos {
     
      private static boolean Opcion3(int id, float ToC) throws RemoteException{
      
-         System.out.println("Temperatura registrada");
-         objRemoto.enviarIndicador(id,ToC);
+
+         System.out.println("Enviando id y temperatura del paciente");
+         boolean objAsintomatico = objRemoto.enviarIndicador(id,ToC);
          return true;
          
      }
