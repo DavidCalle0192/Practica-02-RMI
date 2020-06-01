@@ -55,24 +55,29 @@ public class ClsGestionAsintomaticos extends UnicastRemoteObject implements Gest
     public boolean enviarIndicador(int id, float ToC) throws RemoteException {
         boolean res = false;
         System.out.println("Desde enviar indicadores...");
-        if(ToC<36.2 || ToC > 37.2){
-            ClsAsintomaticoDTO objAsintomatico = consultarAsintomatico(id);
-            if(objAsintomatico!=null){
+        ClsAsintomaticoDTO objAsintomatico = consultarAsintomatico(id);
+        if(objAsintomatico!=null){
+            if(ToC<36.2 || ToC > 37.2){
                 if(objReferenciaRemotaNotificacion!=null){
                     objReferenciaRemotaNotificacion.notificarRegistro(new ClsMensajeNotificacionDTO(id, ToC));
                     res = true;
                 }else{
                     System.out.println("No se encuentra el servidor de notificaciones");
                     res = false;
-                }
+                }   
             }else{
-                System.out.println("No se encuentra el paciente con id "+objAsintomatico.getId());
-                res = false;
+                System.out.println("El paciente "+objAsintomatico.getNombres()+" "
+                        +objAsintomatico.getApellidos()+" con identificación "+objAsintomatico.getTipo_id()+" "
+                        +objAsintomatico.getId()+" presenta una T oC de "+ToC
+                        +" que esta dentro del rango normal");
             }
+        }else{
+            System.out.println("No se encuentra el paciente con id "+objAsintomatico.getId());
+            res = false;
         }
+        
         return res;
     }
-
     
     public void consultarReferenciaRemotaDeNotificacion(String dir_Ip, int numPuerto)
     {
