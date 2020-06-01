@@ -40,8 +40,14 @@ public class ClsGestionAsintomaticos extends UnicastRemoteObject implements Gest
 
     @Override
     public ClsAsintomaticoDTO consultarAsintomatico(int id) throws RemoteException {
-    
-        return this.misUsuarios.get(id);
+        ClsAsintomaticoDTO objAsintomatico = null;
+        for (ClsAsintomaticoDTO clsAsintomaticoDTO : misUsuarios) {
+            if(clsAsintomaticoDTO.getId() == id){
+                objAsintomatico = clsAsintomaticoDTO;
+                break;
+            }
+        }
+        return objAsintomatico;
     }
 
     @Override
