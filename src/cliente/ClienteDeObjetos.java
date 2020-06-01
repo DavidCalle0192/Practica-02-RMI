@@ -129,6 +129,7 @@ public class ClienteDeObjetos {
             System.out.println("Ingrese el id del paciente");
             int id = UtilidadesConsola.leerEntero();
 
+            
             ClsAsintomaticoDTO objUsuario = objRemoto.consultarAsintomatico(id);
             if (objUsuario != null) {
                 System.out.println("Tipo ID: " + objUsuario.getTipo_id());
