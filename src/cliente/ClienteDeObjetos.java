@@ -82,10 +82,14 @@ public class ClienteDeObjetos {
 
                     break;
                 case 3:
-          
+                        if (aux == 1){
                         System.out.println("Ingrese la temperatura: ");
                         float temperatura = UtilidadesConsola.leerDecimal();
                         Opcion3(objAsintomatico.getId(),temperatura);
+                        }else{
+                            System.out.println("No existen pacientes registrados.");
+                        }
+                        
 
                     break;
                 case 4:
