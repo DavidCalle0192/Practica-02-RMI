@@ -1,7 +1,6 @@
 package servidorNotificaciones;
 
 import java.rmi.RemoteException;
-import servidorDeAlertas.rmi.ClsGestionAsintomaticos;
 import servidorNotificaciones.sop_rmi.ClsNotificacion;
 import servidorNotificaciones.utilidades.UtilidadesConsola;
 import servidorNotificaciones.utilidades.UtilidadesRegistroS;
