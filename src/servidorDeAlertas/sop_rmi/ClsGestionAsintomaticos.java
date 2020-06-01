@@ -5,6 +5,7 @@ import java.rmi.server.UnicastRemoteObject;
 import java.util.ArrayList;
 import servidorDeAlertas.dto.ClsAsintomaticoDTO;
 import servidorDeAlertas.utilidades.UtilidadesRegistroC;
+import servidorNotificaciones.dto.ClsMensajeNotificacionDTO;
 import servidorNotificaciones.sop_rmi.NotificacionesInt;
 /*/*
 Clase que implementa la interface remota GestorUsuariosInt
@@ -52,7 +53,24 @@ public class ClsGestionAsintomaticos extends UnicastRemoteObject implements Gest
 
     @Override
     public boolean enviarIndicador(int id, float ToC) throws RemoteException {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        boolean res = false;
+        System.out.println("Desde enviar indicadores...");
+        if(ToC<36.2 || ToC > 37.2){
+            ClsAsintomaticoDTO objAsintomatico = consultarAsintomatico(id);
+            if(objAsintomatico!=null){
+                if(objReferenciaRemotaNotificacion!=null){
+                    objReferenciaRemotaNotificacion.notificarRegistro(new ClsMensajeNotificacionDTO(id, ToC));
+                    res = true;
+                }else{
+                    System.out.println("No se encuentra el servidor de notificaciones");
+                    res = false;
+                }
+            }else{
+                System.out.println("No se encuentra el paciente con id "+objAsintomatico.getId());
+                res = false;
+            }
+        }
+        return res;
     }
 
     
