@@ -123,6 +123,10 @@ public class ClienteDeObjetos {
         System.out.println("Ingrese el apellido del paciente ");
         String apellidos = UtilidadesConsola.leerCadena();
         objAsintomatico.setApellidos(apellidos);
+        
+        System.out.println("Ingrese el apellido del paciente ");
+        String direccion = UtilidadesConsola.leerCadena();
+        objAsintomatico.setDireccion(direccion);
 
         boolean valor = objRemoto.registrarAsintomatico(objAsintomatico);
         if (valor) {
