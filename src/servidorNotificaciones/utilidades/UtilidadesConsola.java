@@ -3,13 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package servidorDeAlertas.utilidades;
+package servidorNotificaciones.utilidades;
 
 /**
  *
  * @author usuario
  */
-import servidorNotificaciones.utilidades.*;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 public class UtilidadesConsola
